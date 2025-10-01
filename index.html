@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartCart - Modern Shopping Experience</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🛒 SmartCart</h1>
+    <input type="text" id="searchBar" placeholder="Search products...">
+    <div class="cart-icon" onclick="toggleCart()">🛒 <span id="cartCount">0</span></div>
+  </header>
+
+  <main>
+    <aside>
+      <h2>Filters</h2>
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="books">Books</option>
+        <option value="home">Home</option>
+      </select>
+      <input type="range" id="priceRange" min="0" max="85999" value="85999">
+      <p>Max Price: ₹<span id="priceValue">5000</span></p>
+    </aside>
+
+    <section id="productList"></section>
+  </main>
+
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-body">
+        <div id="modalImage"></div>
+        <div class="modal-details">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <p id="modalPrice"></p>
+          <button onclick="addToCart(currentProduct.id)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cartSidebar" class="cart-sidebar">
+    <h2>Your Cart <span class="close" onclick="toggleCart()">&times;</span></h2>
+    <div id="cartItems"></div>
+    <div class="cart-footer">
+      <h3>Total: <span id="cartTotal">₹0</span></h3>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
